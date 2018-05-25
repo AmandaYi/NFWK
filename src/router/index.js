@@ -16,7 +16,7 @@ const CallPage = r => require.ensure([], () => r(require('@/pages/call/call')), 
 
 
 // 供求页面
-const SupplyDemand = r => require.ensure([], () => r(require('@/pages/supply-demand/supply-demand')), 'SupplyDemand');
+const SupplyDemandPage = r => require.ensure([], () => r(require('@/pages/supply-demand/supply-demand')), 'SupplyDemandPage');
 
 
 // 个人中心页面
@@ -36,7 +36,7 @@ const ForgetPwdPage = r => require.ensure([], () => r(require('@/pages/forget-pw
 
 // 首页
 // 进入类别详情页面
-const HomeDetailPage = r => require.ensure([], () => r(require('@/pages/home-detail/home-detail')), 'HomeDetailPage');
+const ProvidersPage = r => require.ensure([], () => r(require('@/pages/home-detail/home-detail')), 'ProvidersPage');
 
 
 // 服务商入住页面
@@ -77,7 +77,8 @@ const ForgetSuccessPage = r => require.ensure([], () => r(require('@/pages/forge
 
 // 原生接口路由
 // 首页路由
-// const HomePage = r => require.ensure([], () => r(require('@/native/home/home')), 'HomePage');
+const NativeHomePage = r => require.ensure([], () => r(require('@/native-page/home/home')), 'NativeHomePage');
+const NativeHomeDetailPage = r => require.ensure([], () => r(require('@/native-page/home-detail/home-detail')), 'NativeHomeDetailPage');
 
 
 //路由配置根路由方便开发, 以后会全部改掉,来自赵哲云2018年5月23日 16:52:45
@@ -89,6 +90,11 @@ export default new Router({
 
   routes: [
     //默认页面
+    {
+      path: '',
+      name: 'home-page',
+      component: HomePage
+    },
     {
       path: '/',
       name: 'home-page',
@@ -102,9 +108,9 @@ export default new Router({
      
     },
    {
-      path: '/home-detail',
-      name: 'home-detail-page',
-      component: HomeDetailPage
+      path: '/providers',
+      name: 'providers-page',
+      component: ProvidersPage
     } ,
     //服务商入住页面
     {
@@ -154,8 +160,8 @@ export default new Router({
     // 供求页面
     {
       path: "/supply-demand",
-      name: 'supply-demand',
-      component: SupplyDemand
+      name: 'supply-demand-page',
+      component: SupplyDemandPage
     },
     // 个人中心页面
     {
@@ -206,16 +212,21 @@ export default new Router({
       path: "/forget-success",
       name: 'forget-success-page',
       component: ForgetSuccessPage
-    }
+    },
 
 
     // 原生接口路由
 
-    // {
-    //   path: '/native-home',
-    //   name: "native-home-page",
-    //   component: HomePage
-    // },
+    {
+      path: '/native-home',
+      name: "native-home-page",
+      component: NativeHomePage
+    },
+    {
+      path: '/native-home-detail',
+      name: "native-home-detail-page",
+      component: NativeHomeDetailPage
+    },
     // {
  //     path: '/native-home',
       // name: "native-home-page",

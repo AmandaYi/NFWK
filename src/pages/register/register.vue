@@ -1,29 +1,47 @@
 <template>
     <div class="register-page">
+      <app-header></app-header>
       <div class="title-tab">
            <h2 class="title">新用户注册</h2>
         <p class="desc">输入手机号，创建账户</p>
           </div> 
           <p class="form-block">手机号
-              <input class="ipt" type="text" placeholder="请输入手机号">
+              <input class="ipt"   type="text" placeholder="请输入手机号">
           </p>
-          <push-btn class="btn" :text="btnText"></push-btn>
+          <div @click="toRegisterSms()">
+             <push-btn class="btn" :text="btnText"></push-btn>
+          </div>
+            
+       
+          
           <clause-tag class="tag"></clause-tag>
     </div>
 </template>
 <script>
 import PushBtn from "../../common/push-btn/push-btn";
 import ClauseTag from "../../common/clause-tag/clause-tag";
+import AppHeader from "../../components/app-header/app-header";
+import Axios from 'axios';
 export default {
   name: "register-page",
   data() {
     return {
-      btnText: "下一步"
+      btnText: "下一步",
+      telPhone:""
     };
   },
   components: {
     PushBtn,
-    ClauseTag
+    ClauseTag,AppHeader
+  },
+  methods:{
+   
+    toRegisterSms(){
+      let that = this;
+      this.$router.push({name:"register-sms-page",params:{
+        telPhone : that.telPhone
+      }})
+    }
   }
 };
 </script>
@@ -71,6 +89,7 @@ export default {
     }
   }
   .btn {
+      margin: 0 auto;
     margin-top: 50px;
   }
   .tag {

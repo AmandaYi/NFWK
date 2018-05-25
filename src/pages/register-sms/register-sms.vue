@@ -2,7 +2,7 @@
     <div class="sms-page">
       <div class="title-tab">
            <h2 class="title">新用户注册</h2>
-        <p class="desc">验证码已发送至手机：15622223333</p>
+        <p class="desc">验证码已发送至手机：{{telPhone}}</p>
           </div> 
           <p class="form-block">
               <input class="ipt" type="number" maxlength="4" >
@@ -17,11 +17,18 @@ export default {
   name: "register-sms-page",
   data() {
     return {
-      btnText: "45秒重发"
+      btnText: "45秒重发",
+      telPhone:"1"
     };
   },
   components: {
     PushBtn
+  },
+  created(){
+    this.telPhone = this.$route.params.telPhone
+    console.log(this.$route)
+    console.log(this.telPhone)
+    // debugger
   }
 };
 </script>

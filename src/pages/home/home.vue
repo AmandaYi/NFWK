@@ -1,42 +1,81 @@
 <template>
     <div class="home-page">
+
+
+      <!-- 轮播图 -->
+
+ 
+<div class="home-header">
+  <search-box class="serach-box"></search-box>
+    <app-slider class="app-slider" :loop = 'loop' :autoPlay='autoPlay'>
+            <div class="slider-item"><img class="img-banner" src="@/assets/imgs/banner0.jpg" alt=""></div>
+            <div class="slider-item"><img class="img-banner" src="@/assets/imgs/banner1.jpg" alt=""></div>
+            <div class="slider-item"><img class="img-banner" src="@/assets/imgs/banner0.jpg" alt=""></div>
+            <!-- <div class="slider-item"><img class="img-banner" src="@/assets/imgs/banner0.png" alt=""></div> -->
+            <!-- <div class="slider-item">444</div> -->
+        </app-slider>
+
+</div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="home-list">
             <li class="item" @click="toHomeDetail(0)">
-                <i class="iconfont"></i>
+                <i class="iconfont item0bg"></i>
                 <p class="name">农机服务</p>
             </li>
             <li class="item" @click="toHomeDetail(1)">
-                <i class="iconfont"></i>
-                <p class="name">农机服务</p>
+                <i class="iconfont item1bg"></i>
+                <p class="name">飞防植保</p>
             </li>
             <li class="item" @click="toHomeDetail(2)">
-                <i class="iconfont"></i>
-                <p class="name">农机服务</p>
+                <i class="iconfont item2bg"></i>
+                <p class="name">农资服务</p>
             </li>
             <li class="item" @click="toHomeDetail(3)">
-                <i class="iconfont"></i>
-                <p class="name">农机服务</p>
+                <i class="iconfont item3bg"></i>
+                <p class="name">专家服务</p>
             </li>
             <li class="item" @click="toHomeDetail(4)">
-                <i class="iconfont"></i>
-                <p class="name">农机服务</p>
+                <i class="iconfont item4bg"></i>
+                <p class="name">供求市场</p>
             </li>
             <li class="item" @click="toHomeDetail(5)">
-                <i class="iconfont"></i>
-                <p class="name">农机服务</p>
+                <i class="iconfont item5bg"></i>
+                <p class="name">乡村旅游</p>
             </li>
             <li class="item" @click="toHomeDetail(6)">
-                <i class="iconfont"></i>
-                <p class="name">农机服务</p>
+                <i class="iconfont item6bg"></i>
+                <p class="name">农特产</p>
             </li>
             <li class="item" @click="toHomeDetail(7)">
-                <i class="iconfont"></i>
-                <p class="name">农机服务</p>
+                <i class="iconfont item7bg"></i>
+                <p class="name">医疗健康</p>
             </li>
 
         </div>
         <div class="home-banner">
-            <img class="banner-img" alt="">
+            <img class="banner-img" src="@/assets/imgs/banner-show.png" alt="">
         </div>
            
         <div class="product-itme">
@@ -224,6 +263,7 @@
           <div class="product-itme">
             <subnav-title :text="title0" :link="baidu.com"></subnav-title>
         </div> -->
+            <app-tabs></app-tabs>
     </div>
 </template>
 
@@ -231,6 +271,10 @@
 // import SubnavTitle from "../../common/subnav-title/subnav-title";
 
 import ShopList from "../../common/shop-list/shop-list";
+import AppTabs from "components/app-tabs/app-tabs";
+import AppSlider from "components/app-slider/app-slider";
+import SearchBox from "common/search-box/search-box";
+
 export default {
   name: "home-page",
   data() {
@@ -240,7 +284,9 @@ export default {
       title2: "精选活动",
       link0: "baidu.com",
       link1: "baidu.com",
-      link2: "baidu.com"
+      link2: "baidu.com",
+      loop: true,
+      autoPlay: true
     };
   },
   created() {},
@@ -248,13 +294,16 @@ export default {
     more() {
       console.log(1);
     },
-    toHomeDetail:function(id){
-           this.$router.push({name: 'home-detail-page',params:{id:id}});
+    toHomeDetail: function(id) {
+      this.$router.push({ name: "providers-page", params: { id: id } });
     }
   },
   components: {
     // SubnavTitle
-    ShopList
+    ShopList,
+    AppTabs,
+    AppSlider,
+    SearchBox
   }
 };
 </script>
@@ -262,7 +311,9 @@ export default {
 
 <style lang="scss">
 @import "~@/assets/scss/varibles.scss";
+@import "../../assets/iconfont/iconfont.css";
 .home-page {
+  margin: 0 auto;
   background: #f1f2f6;
   //  <div class="home-list">
   //             <li class="item">
@@ -270,6 +321,22 @@ export default {
   //                 <p class="name">农机服务</p>
   //             </li>
   //         </div>
+  .home-header {
+    position: relative;
+    .serach-box {
+      position: absolute;
+      top: 20px;
+      z-index: 999;
+    }
+    .app-slider {
+      .slider-item {
+        .img-banner {
+          width: 100%;
+        }
+      }
+    }
+  }
+
   .home-list {
     display: flex;
     justify-content: space-around;
@@ -278,20 +345,45 @@ export default {
     text-align: center;
     .item {
       width: 25%;
-        padding-top: 43px;
+      padding-top: 43px;
       .iconfont {
-        
         display: block;
         width: 100px;
         height: 100px;
-
+        // font-size: 100px;
         border-radius: 40px;
-        background: #ff0;
-        margin:0 auto;
+        // background: #ff0;
+        color: #fca24e;
+        margin: 0 auto;
       }
+      .item0bg {
+        background-image: url("../../assets/imgs/item0.svg");
+      }
+      .item1bg {
+        background-image: url("../../assets/imgs/item1.svg");
+      }
+      .item2bg {
+        background-image: url("../../assets/imgs/item2.svg");
+      }
+      .item3bg {
+        background-image: url("../../assets/imgs/item3.svg");
+      }
+      .item4bg {
+        background-image: url("../../assets/imgs/item4.svg");
+      }
+      .item5bg {
+        background-image: url("../../assets/imgs/item5.svg");
+      }
+      .item6bg {
+        background-image: url("../../assets/imgs/item6.svg");
+      }
+      .item7bg {
+        background-image: url("../../assets/imgs/item7.svg");
+      }
+
       .name {
-          margin-top: 22px;
-          margin-bottom: 0;
+        margin-top: 22px;
+        margin-bottom: 0;
         font-size: 26px;
 
         letter-spacing: 0px;
@@ -301,14 +393,14 @@ export default {
   }
   .home-banner {
     width: 100%;
-    height: 203px;
+    // height: 203px;
     .banner-img {
       display: block;
       width: 632px;
-      margin: 38px auto;
-      height: 132px;
+      margin: 0 auto;
+      // height: 132px;
       border-radius: 66px;
-
+      margin-bottom: 20px;
       // background: #ff0;
     }
   }

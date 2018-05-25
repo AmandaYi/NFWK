@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#2DBB55;}
+	.st1{fill:#999999;}
+	.st2{fill:none;stroke:#999999;stroke-width:40;stroke-miterlimit:10;}
+	.st3{fill:#3197FB;}
+	.st4{fill:#F25644;}
+	.st5{fill:#37AEFF;}
+	.st6{fill:#15BC84;}
+	.st7{fill:#3495FD;}
+	.st8{fill:#FCB431;}
+	.st9{fill:#111111;}
+	.st10{fill:#697C3C;}
+	.st11{fill:#8BA945;}
+	.st12{fill:#8AA945;}
+	.st13{fill:#FDFDFC;}
+	.st14{fill:#020202;}
+	.st15{fill:#EBEBEB;}
+	.st16{fill:#EAEAEA;}
+	.st17{fill:none;stroke:#3B481D;stroke-width:20;stroke-miterlimit:10;}
+	.st18{fill:#3B481D;}
+	.st19{fill:#E6DF90;}
+	.st20{fill:#ECECEC;}
+	.st21{fill:#0A0A0A;}
+	.st22{fill:#FF6600;}
+	.st23{fill:none;stroke:#000000;stroke-width:40;stroke-miterlimit:10;}
+	.st24{fill:#29A7E1;}
+	.st25{fill:#FFFFFF;}
+	.st26{fill:#CCCCCC;}
+	.st27{fill:url(#SVGID_1_);}
+	.st28{fill:#545454;}
+	.st29{fill:url(#SVGID_2_);}
+	.st30{fill:url(#SVGID_3_);}
+	.st31{fill:url(#SVGID_4_);}
+	.st32{fill:url(#SVGID_5_);}
+	.st33{fill:url(#SVGID_6_);}
+	.st34{fill:url(#SVGID_7_);}
+	.st35{fill:url(#SVGID_8_);}
+	.st36{fill:url(#SVGID_9_);}
+	.st37{fill:url(#SVGID_10_);}
+</style>
+<g id="图层_1">
+	<path class="st25" d="M166,912c4.4,9.1,11.1,13.2,21.7,13.2c215.5-0.2,430.9-0.2,646.4,0c12.4,0,19-4.2,23-15.2c0,5.3,0,10.7,0,16
+		c-230.3,0-460.7,0-691,0C166,921.3,166,916.7,166,912z"/>
+	<g>
+		<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="570.4461" y1="506.0101" x2="472.0076" y2="335.5096">
+			<stop  offset="0" style="stop-color:#FFCC1B"/>
+			<stop  offset="0.9946" style="stop-color:#FFDB26"/>
+		</linearGradient>
+		<path class="st27" d="M607.8,370.4c-8.9,0-16,7.2-16,16c0,4.6,1.9,8.7,5,11.6c-1.7,20-8.3,61-33.1,85.9
+			c-13.6,13.6-31.2,20.6-52.3,20.6c0,0,0,0,0,0c-21,0-38.6-6.9-52.1-20.5c-24.5-24.5-31.2-65-33.1-85.3c3.6-2.9,5.8-7.4,5.8-12.4
+			c0-8.9-7.2-16-16-16s-16,7.2-16,16c0,5.1,2.4,9.7,6.1,12.6c1.8,22.4,9.2,69.3,39,99.1c17.5,17.5,39.8,26.4,66.4,26.4
+			c0,0,0,0,0.1,0c26.6,0,48.9-8.9,66.4-26.5c29.4-29.5,37-75.7,38.9-98.3c4.3-2.9,7.1-7.8,7.1-13.3
+			C623.9,377.6,616.7,370.4,607.8,370.4z"/>
+		<linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="732.9735" y1="897.4694" x2="289.164" y2="128.7688">
+			<stop  offset="0" style="stop-color:#FFCC1B"/>
+			<stop  offset="0.9946" style="stop-color:#FFDB26"/>
+		</linearGradient>
+		<path class="st29" d="M592.6,99.2h-163C246,99.2,97.1,248,97.1,431.6v163C97.1,778.2,246,927,429.6,927h163
+			C776.2,927,925,778.2,925,594.6v-163C925,248,776.2,99.2,592.6,99.2z M723.6,709.9c-3.8,4.1-9.1,6.4-14.7,6.4H314.2
+			c-5.6,0-10.9-2.3-14.7-6.4c-3.8-4.1-5.7-9.6-5.3-15.1l28.5-363.8c0.8-10.3,9.6-18.4,19.9-18.4h99.7c5.5,0,10,4.5,10,10h119
+			c0-5.5,4.5-10,10-10h99.6c10.4,0,19.1,8.1,19.9,18.5l27.9,363.8C729.3,700.3,727.4,705.8,723.6,709.9z"/>
+	</g>
+</g>
+<g id="图层_2">
+</g>
+</svg>

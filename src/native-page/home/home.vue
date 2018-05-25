@@ -1,6 +1,13 @@
 <template>
     <div class="home-page">
-        
+         <!-- 轮播图 -->
+           <!-- <slide :loop = 'loop' :autoPlay='autoPlay'>
+            <div class="slider-item">11</div>
+            <div class="slider-item">22</div>
+            <div class="slider-item">33</div>
+            <div class="slider-item">444</div>
+        </slide> -->
+
            
         <div class="product-itme">
             <!-- <subnav-title :text="title0" :link="link0"></subnav-title> -->
@@ -194,6 +201,7 @@
 // import SubnavTitle from "../../common/subnav-title/subnav-title";
 
 import ShopList from "common/shop-list/shop-list";
+// import AppSlider from "components/app-slider/app-slider";
 export default {
   name: "native-home-page",
   data() {
@@ -203,7 +211,9 @@ export default {
       title2: "精选活动",
       link0: "baidu.com",
       link1: "baidu.com",
-      link2: "baidu.com"
+      link2: "baidu.com",
+      // loop: true,
+      // autoPlay: true
     };
   },
   created() {},
@@ -218,7 +228,8 @@ export default {
   },
   components: {
     // SubnavTitle
-    ShopList
+    ShopList,
+    // AppSlider
   }
 };
 </script>
@@ -279,7 +290,7 @@ export default {
             border-radius: 6px 0px 0px 0px;
           }
           .desc {
-              color:#ffffff;
+            color: #ffffff;
             position: absolute;
             bottom: 25px;
             left: 37px;
@@ -321,7 +332,8 @@ export default {
         justify-content: flex-start;
         align-items: center;
         flex-wrap: wrap;
-        .item {   background: #ffffff;
+        .item {
+          background: #ffffff;
           width: 49%;
           height: 200px;
           //   background-color: #f000ff;
@@ -331,14 +343,14 @@ export default {
           &:nth-child(3) {
             border-right: 1px solid #cccccc;
           }
-            &:nth-child(3),
+          &:nth-child(3),
           &:nth-child(4) {
             border-bottom: 0 none;
           }
           .item-b {
             float: left;
             padding-left: 25px;
- 
+
             .title {
               font-size: 28px;
               margin-top: 28px;
@@ -385,26 +397,25 @@ export default {
     }
     .shop-good {
       background: #fefefe;
-      width:100%;
+      width: 100%;
       margin: 0 auto;
-    //   padding-left: 28px;
-    //   margin-bottom: 20px;
-
+      //   padding-left: 28px;
+      //   margin-bottom: 20px;
     }
     // 农特产产品
-.farm-list-title{
-    margin-top: 20px;
-}
+    .farm-list-title {
+      margin-top: 20px;
+    }
     .farm-list {
       width: 92.2%;
       display: flex;
       justify-content: space-around;
       flex-wrap: wrap;
       align-items: center;
-        margin-left: 28px;
-        background: #ffffff;
-    //   padding-top: 20px;
-        box-shadow: 0 4px 10px 10px rgba(0, 0, 0, 0.05); 
+      margin-left: 28px;
+      background: #ffffff;
+      //   padding-top: 20px;
+      box-shadow: 0 4px 10px 10px rgba(0, 0, 0, 0.05);
       .item {
         border-right: 1px solid #cccccc;
         width: 33%;
@@ -480,17 +491,17 @@ export default {
         }
       }
     }
-.news-list-title{
-    margin-top: 22px;
-}
+    .news-list-title {
+      margin-top: 22px;
+    }
     .news-list {
-        background: #ffffff;
-    //   padding-left: 28px;
-    //   padding-right: 28px;
-        
+      background: #ffffff;
+      //   padding-left: 28px;
+      //   padding-right: 28px;
+
       .item {
-          margin: 0 auto;
-          width: 92.2%;
+        margin: 0 auto;
+        width: 92.2%;
         .title {
           font-size: 30px;
 
@@ -501,10 +512,9 @@ export default {
           padding-bottom: 40px;
           border-bottom: 2px solid #eeeeee;
           margin-bottom: 40px;
-          &:last-child{ 
-          border-bottom: 0;
-              
-          } 
+          &:last-child {
+            border-bottom: 0;
+          }
           .img {
             width: 694px;
             height: 214px;

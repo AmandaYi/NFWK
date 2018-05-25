@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import 'lib-flexible/flexible';
 import './assets/scss/index.scss';  
+import './assets/iconfont/iconfont';
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

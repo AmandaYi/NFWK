@@ -72,6 +72,7 @@
             <div class="btn" @click="toShopmsg(5)">立即入住</div>
         </li>
     </div>
+    <app-tabs></app-tabs>
 </div>
 </template>
 
@@ -79,6 +80,7 @@
 
 
 <script>
+import AppTabs from "components/app-tabs/app-tabs";
 export default {
   name: "shop",
   data() {
@@ -89,6 +91,9 @@ export default {
            this.$router.push({name: 'shop-msg-page',params:{id:id}});
     }
    
+  },
+  components:{
+      AppTabs
   }
 };
 </script>
