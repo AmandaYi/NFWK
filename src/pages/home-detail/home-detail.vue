@@ -56,8 +56,48 @@
       </ul>
     </div>
     <!-- 其他页 -->
-    <div v-show="toggleTab1">111</div>
-    <div v-show="toggleTab2">22</div>
+    <div v-show="toggleTab1"><ul class="top-nav">
+        <li class="nav-item active" @click="itemOrder(0)">综合</li>
+        <li class="nav-item" @click="itemOrder(1)">区域</li>
+        <li class="nav-item" @click="itemOrder(2)">销量</li>
+      </ul>
+      <ul class="nongji">
+        <li class="nongji-item" :key="index" v-for="(item, index) in this.list">
+          <div class="left"><img :src="item.logoUrl" height="200" width="200" class="logo"/>
+          </div>
+          <div class="right">
+            <p class="title1">{{ item.companyName }}</p>
+            <p class="addr">地址：{{ item.addr }}</p>
+            <p class="juli">
+              <img src="@/assets/imgs/addr.png" alt="">
+              <span class="text">{{ item.distance }}km</span>
+            </p>
+            <p class="count"><img src="@/assets/imgs/wo2-01.png" alt="">
+              <span class="text">{{ item.serverNum }}人已提供服务</span></p>
+          </div>
+        </li>
+      </ul></div>
+    <div v-show="toggleTab2"><ul class="top-nav">
+        <li class="nav-item active" @click="itemOrder(0)">综合</li>
+        <li class="nav-item" @click="itemOrder(1)">区域</li>
+        <li class="nav-item" @click="itemOrder(2)">销量</li>
+      </ul>
+      <ul class="nongji">
+        <li class="nongji-item" :key="index" v-for="(item, index) in this.list">
+          <div class="left"><img :src="item.logoUrl" height="200" width="200" class="logo"/>
+          </div>
+          <div class="right">
+            <p class="title1">{{ item.companyName }}</p>
+            <p class="addr">地址：{{ item.addr }}</p>
+            <p class="juli">
+              <img src="@/assets/imgs/addr.png" alt="">
+              <span class="text">{{ item.distance }}km</span>
+            </p>
+            <p class="count"><img src="@/assets/imgs/wo2-01.png" alt="">
+              <span class="text">{{ item.serverNum }}人已提供服务</span></p>
+          </div>
+        </li>
+      </ul></div>
   </div>
 </template>
 
@@ -271,7 +311,7 @@ import axios from "axios"
     width: 100%;
   }
 
-  .main {
+  // .main {
     .top-nav {
       display: flex;
       border-bottom: #eee 1px solid;
@@ -346,7 +386,7 @@ import axios from "axios"
         }
       }
     }
-  }
+  // }
 }
 
 </style>
