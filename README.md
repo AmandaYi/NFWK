@@ -1,4 +1,4 @@
-# 农服APP
+# 微信农服APP
 ## 命令
 ``` bash
 # install dependencies

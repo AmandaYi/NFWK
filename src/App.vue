@@ -7,18 +7,25 @@
 <script>
 export default {
   name: "App",
-     methods: {
-      setComponent: function (component) {
-        curComponent = component;
-      }
-    },
-};
-window["receiveMsgFromNative"] = function(msg) {
-  curComponent.receiveMsgFromParent(msg);
+  created() {
+    this.test();
+  },
+  methods: {
+    test() {
+      console.log("没错,我就是赵哲云!");
+    }
+  }
 };
 </script>
 
 <style>
-#app {
+html,body{
+  width: 100%;
+  height: 100%;
+
+}
+#app{
+   width: 100%;
+  height: 100%;
 }
 </style>

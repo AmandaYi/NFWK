@@ -4,8 +4,8 @@ const express = require("express");
 const app = express();
 
 
-app.listen(3000,"192.168.1.11");
+app.listen(3000);
 
-app.use(express.static("./dist/"))
+app.use(express.static("./dist"))
 
 

@@ -5,10 +5,10 @@ import App from './App'
 import router from './router'
 import 'lib-flexible/flexible';
 import './assets/scss/index.scss';  
-import './assets/iconfont/iconfont';
+import './assets/iconfont/iconfont.css';
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
+ 
 new Vue({
   el: '#app',
   router,
