@@ -18,14 +18,23 @@ export default {
 };
 </script>
 
-<style>
-html,body{
+<style lang="scss">
+html,
+body {
   width: 100%;
   height: 100%;
-
 }
-#app{
-   width: 100%;
+#app {
+  width: 100%;
   height: 100%;
+  .amap-icon {
+    height: 90px !important;
+    // background-color: #ff0;
+    img {
+      height: 90px !important;
+      // background-color: #ff0;
+      width: 90px !important;
+    }
+  }
 }
 </style>

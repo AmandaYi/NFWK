@@ -1,6 +1,10 @@
 <template> 
     <div class="home-page">
-        <app-header :city="headerCity" class="app-header"></app-header>
+      <div class="personal-list" ref="leftList">
+          <personal-list @hideLeftList="hideLeftList"></personal-list>
+      </div>
+        <div v-show="navList==true">
+     <app-header @showLeftList="showLeftList" :city="headerCity" class="app-header"></app-header>
         <div class="nav clearfix">
             <div class="nav-title">
                 <div class="left clearfix"  @click="toggleNavTitle($event)" ref="navTitle">
@@ -21,12 +25,14 @@
                 <li :class="{'sub-item':true,'current':index==0}" :key="index" v-for="(item,index) of subNav">{{item.title}}</li>
             </div>
         </div>
+        </div>
+   
         <div class="map" id="map" ref="map">
             <i class="iconfont icon-zuobiao"></i>
         </div> 
         <transition name="markerToggle">
         <div class="marker-detail" v-show="isShowMarker" ref="markerBlock" @touchstart="hideStart($event)" @touchmove="hideMove($event)" @touchend="hideEnd($event)">
-            <marker-page :marker="marker"></marker-page>
+            <marker-page :marker="this.$store.state.marker"></marker-page>
         </div>
         </transition>
     </div>
@@ -35,10 +41,12 @@
 // 引入头部
 import AppHeader from "components/app-header/app-header";
 import MarkerPage from "components/marker-detail/marker-detail";
+// 引入左侧栏目
+import PersonalList from "components/personal-list/personal-list";
 // 引入vuex,将此页面的map填充进去,PS先实现功能
-// import store from '@/store/store';
 
-// import  {mapState} from 'vuex';
+import store from "@/vuex/store";
+import { mapState, mapMutations } from "vuex";
 
 import AMap from "AMap";
 
@@ -55,8 +63,10 @@ export default {
   name: "home-page",
   data() {
     return {
+      navList: true,
+      navListIndex: 0,
       // 头部的城市定位
-      headerCity:"郑州市",
+      headerCity: "郑州市",
       map: "",
       markers: [],
       apiService: new ApiService(),
@@ -143,10 +153,18 @@ export default {
         rating: 5,
         desc:
           "北京翼农是一家集农业植保高科技器械产 品研究开发、生产、销售、服务于一体的专业化公司",
-        telPhone: "15839521352"
+        telPhone: "15839521352",
+        imgUrl: null
       }
     };
   },
+  computed: {
+    // 使用对象展开运算符将此对象混入到外部对象中
+    // ...mapState({
+    //    marker:  store.state.marker,
+    // })
+  },
+
   created() {
     this.subNav = this.nav[0].sub;
   },
@@ -155,6 +173,24 @@ export default {
     // 得到全部数据
   },
   methods: {
+    // 左边的列表进行打开
+    showLeftList() {
+      // this.$refs.leftList.style["marginLeft"]="0"
+      // alert("我会喊666");
+      console.log((this.$refs.leftList.style.marginLeft = "100%"));
+
+      this.$refs.leftList.style.display = "block";
+    },
+    hideLeftList() {
+      console.log((this.$refs.leftList.style.marginLeft = "0"));
+      this.$refs.leftList.style.display = "none";
+    },
+    // 对marker进行修改
+
+    // ...mapMutations([
+    //   "updateMarker"
+    // ]),
+
     initMap() {
       let that = this;
       return new Promise(resolve => {
@@ -178,6 +214,17 @@ export default {
         AMap.event.addListener(that.map, "touchstart", function(e) {
           // console.log(11111111111111)
           that.isShowMarker = false;
+        });
+        AMap.event.addListener(that.map, "click", function(e) {
+          // console.log(11111111111111)
+      if(that.navListIndex %2 == 0) {
+        that.navList =false
+        that.navListIndex++;
+      }else if(that.navListIndex %2==1){
+           that.navList =true;
+        that.navListIndex++;
+           
+      }
         });
         let res = e.position;
         let gysTypeId = gysTypeId || 1;
@@ -251,15 +298,13 @@ export default {
     },
     // 根据当前地理定位进行首页显示地理位置,
     setCurrentCity(lng, lat) {
-      // debugger;   
+      // debugger;
       let that = this;
       // 因为高德传入的是字符参数,这里获取的是int类型,所以转下码
       lng = "" + lng;
       lat = "" + lat;
       that.apiService.getRegeo(lng, lat).then(res => {
- 
-        that.headerCity = res.data.regeocode.addressComponent.city
-
+        that.headerCity = res.data.regeocode.addressComponent.city;
       });
     },
     // 点击一级导航的时候获取点标记
@@ -522,10 +567,9 @@ export default {
       //   console.log(imgUrl);
       newMarker.imgUrl = SERVICE_IMAGES_URL + markerItem.gysType.imgUrl;
       newMarker.telPhone = "tel:" + markerItem.telPhone;
-
-      that.marker = newMarker;
-
-      // console.log(newMarker);
+    // 将服务商的简陋信息保存下
+      this.$store.commit("updateMarker", newMarker);
+      console.log(newMarker);
       that.isShowMarker = true;
     },
     // 隐藏底部的详情框
@@ -632,7 +676,8 @@ export default {
   },
   components: {
     AppHeader,
-    MarkerPage
+    MarkerPage,
+    PersonalList
   }
 };
 </script>
@@ -641,6 +686,16 @@ export default {
   height: 100%;
   width: 100%;
   position: relative;
+  // 侧栏
+
+  .personal-list {
+    position: absolute;
+    z-index: 2000;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin-left: -100%;
+  }
   .app-header {
     position: relative;
     z-index: 900;

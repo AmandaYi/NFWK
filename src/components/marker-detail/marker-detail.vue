@@ -11,8 +11,8 @@
         </div>
         <p class="desc">{{marker.companyDesc}}</p>
         <!-- 底部按钮和更多信息详情 -->
-        <div class="contact clearfix">
-            <div class="left"><i class="iconfont icon-liebiao"></i><span class="text">公司详情</span></div>
+        <div class="contact clearfix" v-if="hide !== true">
+            <div class="left" @click="companyDetail()"><i class="iconfont icon-liebiao"></i><span class="text">公司详情</span></div>
             <div class="right clearfix">
                 <p class="btn tel"><a :href="marker.telPhone"></a> 电话咨询</p>
                 <p class="btn tip" @click="subscribe()">现在预约</p>
@@ -23,20 +23,27 @@
 <script>
 export default {
   name: "marker-page",
-  props: ["marker"],
-  mounted() {
-     
-  },
-  methods:{
+  props: ["marker", "hide"],
+  methods: {
     // 去订阅页面,参数为服务商的id
-  subscribe(){
-    this.$router.push({
-      name:"subscribe-page",
-      params:{
-        id:1
-      }
-    })
-  }
+    subscribe() {
+      console.log(this.marker);
+      this.$router.push({
+        name: "subscribe-page",
+        params: {
+          gysId: this.marker.id
+        }
+      });
+    },
+    // 去公司详情
+    companyDetail() {
+      this.$router.push({
+        name: "company-detail-page",
+        params: {
+          gysId: this.marker.id
+        }
+      });
+    }
   }
 };
 </script>
@@ -89,18 +96,21 @@ export default {
   }
   .desc {
     background-color: #ffffff;
-    margin: 0 auto;
-    padding: 30px 0;
+
+    // padding: 30px 0;
+    margin: 30px auto;
     border-bottom: 1px solid #eeeeee;
+
     font-size: 30px;
     color: #2a2e2d;
     letter-spacing: 0px;
     text-indent: 2em;
-    height: 74px;
+    // height: 74px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     overflow: hidden;
+    // line-height: 40px;
   }
   .contact {
     height: 124px;
@@ -139,7 +149,7 @@ export default {
         background: #ffffff;
         border-radius: 35px;
       }
-      .tel{
+      .tel {
         border: solid 1px rgba(153, 153, 153, 0.9);
       }
       .tip {

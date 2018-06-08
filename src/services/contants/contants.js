@@ -24,6 +24,14 @@ export const SERVICE_IMAGES_URL = "http://192.168.1.13:8080/images/";
 
 
 
+// 商品图片服务器
+export const SERVICE_SHOP_IMAGES_URL = "http://192.168.1.13:8080/pimages/";
+
+
+
+
+
+
 
 
 

@@ -52,6 +52,96 @@ export default class ApiService {
 
 
 
+
+
+
+
+
+  /**********************************************************************立刻预约页面查询商家的服务类别****STR************************************************************************/
+  /**
+   * 
+   *@name 根据供应商查询商品服务 
+   *@param 
+   * 
+   * 
+   * 
+   * 
+   * 
+   * 
+   */
+  getGysProducts(gysId) {
+    let param = {
+      gysId
+    }
+    return this.http.get('product/getGysProducts', param);
+
+  }
+
+
+  /**
+   * 
+   *@name 根据id查询某个商品服务
+   *@param id
+   * 
+   * 
+   * 
+   * 
+   */
+  getProduct(id) {
+    let param = {
+      id
+    }
+    return this.http.get('product/getProduct', param);
+
+  }
+
+  /**********************************************************************立刻预约页面查询商家的服务类别****END************************************************************************/
+  /***********************************************************************购物车的增删改查*****STR******************************************************************************/
+  /**
+   *@name 购物车的增加,将选中的商品服务加入购物车
+   *@param {当前用户id} userId 必填
+   *@param {选中商品服务的id} pItemId 必填
+   *@param {服务地址} serverAddr
+   *@param {服务时间} serverTime
+   *@param {服务面积} serverAmount
+   * 
+   */
+  postAddCart(userId, pItemId, serverAmount) {
+    let param = {
+      userId,
+      pItemId,
+      serverAmount
+    }
+    return this.http.postFormData('cart/addCart', param)
+  }
+  /**
+   *@name 购物车的删除,根据用户id、和购物项id删除购物项
+   * 
+   * 
+   */
+  /**
+   *@name 购物车的修改,修改购物车中购物项的
+   * 
+   * 
+   */
+  /**
+   *@name 购物车的查找,根据用户id查询购物车
+   *@param {当前用户id} userId
+   *@param {当前页，默认0为第一页} page
+   *@param {每页多少条，默认10条} size
+   *
+   */
+  getUserCart(userId,page=0,size=10){
+    let param = {
+      userId,
+      page,
+      size
+    }
+    return this.http.get("cart/getUserCart",param);    
+  }
+
+  /***********************************************************************购物车的增删改查*****END******************************************************************************/
+
   /***************************************************************用户操作登录注册忘记密码页面的登录业务API***********STR********************************************************************/
 
   /**
@@ -108,24 +198,24 @@ export default class ApiService {
 
 
 
- 
 
 
-/**
- * 
- *@name 注册业务发送验证码 
- *@param {手机号码} 
- * 
- * 
- * 
- * 
- * 
- */
-  postRegisterSendSms(phone){
+
+  /**
+   * 
+   *@name 注册业务发送验证码 
+   *@param {手机号码} 
+   * 
+   * 
+   * 
+   * 
+   * 
+   */
+  postRegisterSendSms(phone) {
     let param = {
       phone
     }
-    return this.http.postUser('register_send_sms',param)
+    return this.http.postUser('register_send_sms', param)
   }
 
   /**
@@ -141,14 +231,18 @@ export default class ApiService {
    * 
    */
 
-postRegister(phone,smsCode,hash,tamp){
-  let param  =  {
-    phone,smsCode,hash,tamp
+  postRegister(phone, smsCode, hash, tamp) {
+    let param = {
+      phone,
+      smsCode,
+      hash,
+      tamp
+    }
+    return this.http.postUser('register', param);
   }
-  return this.http.postUser('register',param);
-}
-  
+
   /***************************************************************用户操作登录注册忘记密码页面的登录业务API***********END********************************************************************/
+
 
 
 

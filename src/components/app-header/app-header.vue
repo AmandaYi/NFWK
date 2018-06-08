@@ -6,7 +6,7 @@
           <i class="iconfont icon-wo"></i>
       </div>
         <div class="search-btn">
-          <i class="iconfont icon-sousuo"></i>
+          <!-- <i class="iconfont icon-sousuo"></i> -->
       </div>
       <div class="city-title">
           <h2 class="city">
@@ -28,9 +28,10 @@ export default {
       this.$router.go(-1);
     },
     personList() {
-       this.$router.push({
-           name:"ordinary-login-page"
-       })
+      //  this.$router.push({
+      //      name:"ordinary-login-page"
+      //  })
+      this.$emit("showLeftList")
     }
   }
 };
